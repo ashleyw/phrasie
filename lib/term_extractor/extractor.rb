@@ -7,7 +7,6 @@ class TermExtractor
   def initialize(options={})
     self.tagger = Tagger.new
     self.filter = options[:filter] || {:strength => 2, :occur => 3}
-    puts self.filter
   end
   
   def extract(input, min_occur=3)
@@ -47,23 +46,13 @@ class TermExtractor
     return terms
             .map{|phrase, occurance| [phrase, occurance, phrase.split.size] } \
             .delete_if{|arr| !self.validate(*arr)} \
-            .sort_by{|phrase, occurance, strength|  strength + (occurance / 10.0) }.reverse
+            .sort_by{|phrase, occurance, strength|  occurance + ((occurance/5.0)*strength) }.reverse
   end
   
   protected
   def validate(word, occur, strength)
-    # puts "#{occur}, #{strength}, #{filter.inspect}"
-    result = (strength == 1 && occur >= self.filter[:occur]) || strength >= self.filter[:strength]
-    # puts "#{occur}, #{strength}, #{filter.inspect}: #{result}"
-    result
+    (strength == 1 && occur >= self.filter[:occur]) || strength >= self.filter[:strength]
   end
-  
-  # def __init__(self, singleStrengthMinOccur=3, noLimitStrength=2):
-  #     self.singleStrengthMinOccur = singleStrengthMinOccur
-  #     self.noLimitStrength = noLimitStrength
-  # 
-  # def __call__(self, word, occur, strength):
-  #     return ((strength == 1 && occur >= 3) || (strength >= 2))
   
   def add(term, norm, multiterm, terms)
     multiterm << [term, norm]

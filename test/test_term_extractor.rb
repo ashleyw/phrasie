@@ -7,7 +7,7 @@ class TestTermExtractor < Test::Unit::TestCase
   end
   
   def test_extractor
-    expected = [["Newton", 1, 2], ["Boston", 1, 2], ["German consul", 1, 2], ["consul", 1, 2], ["German", 1, 2]]
+    expected = [["German consul", 1, 2]]
     assert_equal expected, @extractor.extract(@text).sort_by{|a| a[1]}
   end
   
@@ -51,35 +51,6 @@ class TestTermExtractor < Test::Unit::TestCase
     capital.
     
     Palestinians hope to establish their capital in the area.)
-    
-    @extractor.extract(text).each do |line|
-      print "#{line.inspect}\n"
-    end
-    
-    # [["East Jerusalem", 4, 2]
-    # ["Palestinian Authority", 2, 2]
-    # ["Palestinian theatre", 2, 2]
-    # ["British Council", 1, 2]
-    # ["police notice", 1, 2]
-    # ["opening event", 1, 2]
-    # ["Israeli authorities", 1, 2]
-    # ["security minister", 1, 2]
-    # ["Mr Makepeace", 1, 2]
-    # ["peace accords", 1, 2]
-    # ["British consul-general", 1, 2]
-    # ["Israeli police", 1, 2]
-    # ["Palestinian state", 1, 2]
-    # ["court order", 1, 2]
-    # ["literature festival", 1, 2]
-    # ["Palestinians hope", 1, 2]
-    # ["Richard Makepeace", 1, 2]
-    # ["Jerusalem", 8, 1]
-    # ["Palestinian", 6, 1]
-    # ["event", 6, 1]
-    # ["Israel", 4, 1]
-    # ["police", 4, 1]
-    # ["East", 4, 1]
-    # ["theatre", 3, 1]]
     
     assert_equal 24, @extractor.extract(text).size
   end
