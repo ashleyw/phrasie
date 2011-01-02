@@ -100,7 +100,7 @@ or in your Gemfile:
 
 ## LICENSE:
 
-Copyright 2010 Ashley Williams <hi@ashleyw.co.uk>  
+Copyright 2010 Ashley Williams \<<hi@ashleyw.co.uk>\>  
 Copyright 2009 Stephan Richter, Russ Ferriday and the Zope Community (Original Python implementation)  
 
 This program is free software: you can redistribute it and/or modify
