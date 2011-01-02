@@ -53,7 +53,7 @@ Based on the excellent Python library [topia.termextract](http://pypi.python.org
     
     Palestinians hope to establish their capital in the area.)
     
-    extractor = TermExtractor.new
+    extractor = Wordinator::Extractor.new
 
     extractor.extract(text)
     
