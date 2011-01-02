@@ -56,33 +56,19 @@ Based on the excellent Python library [topia.termextract](http://pypi.python.org
 
     extractor.phrases(text)
     
-    #   [["Jerusalem", 8, 1],
-    #    ["event", 6, 1],
-    #    ["Palestinian", 6, 1],
-    #    ["East Jerusalem", 4, 2],
-    #    ["East", 4, 1],
-    #    ["police", 4, 1],
-    #    ["Israel", 4, 1],
-    #    ["theatre", 3, 1],
-    #    ["Palestinian theatre", 2, 2],
-    #    ["Palestinian Authority", 2, 2],
-    #    ["opening event", 1, 2],
-    #    ["Israeli authorities", 1, 2],
-    #    ["Richard Makepeace", 1, 2],
-    #    ["court order", 1, 2],
-    #    ["literature festival", 1, 2],
-    #    ["British consul-general", 1, 2],
-    #    ["police notice", 1, 2],
-    #    ["security minister", 1, 2],
-    #    ["Israeli police", 1, 2],
-    #    ["peace accords", 1, 2],
-    #    ["Mr Makepeace", 1, 2],
-    #    ["British Council", 1, 2],
-    #    ["Palestinian state", 1, 2],
-    #    ["Palestinians hope", 1, 2]]
+    # [["Jerusalem", 8, 1],
+    #  ["Palestinian", 6, 1],
+    #  ["event", 6, 1],
+    #  ["East Jerusalem", 4, 2],
+    #  ["East", 4, 1],
+    #  ["police", 4, 1],
+    #  ["Israel", 4, 1],
+    #  ["theatre", 3, 1],
+    #  ["Palestinian theatre", 2, 2],
+    #  ["Palestinian Authority", 2, 2]]
     
     
-By default the results are filtered to remove words/phrases which occur less than 3 times, or have a word-count of less than 2. Here's how you'd modify it:
+By default the results are filtered to only keep words/phrases which occur at least 3 times, or occur at least twice and have a word count of more than 2. Here's how you'd modify this behaviour:
     
 `extractor = Wordinator::Extractor.new(:filter => {:strength => 2, :occur => 3})`
 

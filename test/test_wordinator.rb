@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 
 class TestWordinator < Test::Unit::TestCase
   def setup
-    @text = 'The German consul of Boston resides in Newton.'
+    @text = 'The German consul of Boston resides in Newton. The German consul is awesome.'
     @long_text = %(Police shut Palestinian theatre in Jerusalem.
     
     Israeli police have shut down a Palestinian theatre in East Jerusalem.
@@ -46,8 +46,22 @@ class TestWordinator < Test::Unit::TestCase
   end
   
   def test_extractor
-    expected = [["German consul", 1, 2]]
+    expected = [["German consul", 2, 2]]
     assert_equal expected, @extractor.phrases(@text).sort_by{|a| a[1]}
+  end
+  
+  def test_non_words
+    text = %(LONDON - WikiLeaks founder Julian Assange was refused bail and jailed for a week by a British court Tuesday, pending an extradition hearing over alleged sex offenses in Sweden.
+    Assange turned himself in to U.K. police earlier in the day in the latest blow to his WikiLeaks organization, which faces legal, financial and technological challenges after releasing hundreds of secret U.S. diplomatic cables.
+    Swedish prosecutors had issued an arrest warrant for the 39-year-old Australian, who is accused of sexual misconduct with two women.
+    Assange surrendered at 9:30 a.m. local time (4:30 a.m. ET) Tuesday. The U.K.'s Guardian newspaper reported that Assange later arrived at a London court accompanied by British lawyers Mark Stephens and Jennifer Robinson.
+    During his court appearance, Assange said he would fight extradition to Sweden and he provided the court with an Australian address. Britain's Sky News reported that Assange was receiving consular assistance from officials at the Australian High Commission.
+    The next court hearing is scheduled for next Tuesday, and Assange will remain in custody until then because he was deemed to be a flight risk.
+    Judge Howard Riddle asked Assange whether he understood that he could agree to be extradited to Sweden. Assange, dressed in a navy blue suit, cleared his throat and said: "I understand that and I do not consent."
+    The judge said he had grounds to believe that the former computer hacker - a self-described homeless refugee - might not show up to his next hearing if he were granted bail.
+    Arguments during the hour-long hearing detailed the sex accusations against Assange, all of which he has denied.
+    Australian journalist John Pilger, British film director Ken Loach and Jemima Khan, former wife of Pakistani cricketer and politician Imran Khan, all offered to put up sureties to persuade the court Assange would not flee.)
+    assert_equal 7, @extractor.phrases(text).size
   end
   
   #   [["Jerusalem", 8, 1],
@@ -76,8 +90,7 @@ class TestWordinator < Test::Unit::TestCase
   #    ["Palestinians hope", 1, 2]]
   
   def test_long_text
-    puts @extractor.phrases(@long_text).inspect   
-    assert_equal 24, @extractor.phrases(@long_text).size
+    assert_equal 10, @extractor.phrases(@long_text).size
   end
   
   def test_filter_options
