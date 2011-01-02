@@ -9,6 +9,10 @@ module Wordinator
       self.tagger = Tagger.new
       self.filter = options[:filter] || {:strength => 2, :occur => 3}
     end
+    
+    def to_s
+      "#<Wordinator::Extractor>"
+    end
 
     def extract(input, min_occur=3)
       if input.is_a? String

@@ -54,4 +54,8 @@ class TestWordinator < Test::Unit::TestCase
     
     assert_equal 24, @extractor.extract(text).size
   end
+  
+  def test_extractor_to_s
+    assert @extractor.to_s == "#<Wordinator::Extractor>"
+  end
 end
