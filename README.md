@@ -83,7 +83,9 @@ Based on the excellent Python library [topia.termextract](http://pypi.python.org
 By default the results are filtered to remove words/phrases which occur less than 3 times, or have a word-count of less than 2. Here's how you would modify it:
     
 `extractor = TermExtractor.new(:filter => {:strength => 2, :occur => 3})`
+
 or
+
 `extractor.filter = {:strength => 2, :occur => 3}`
 
 ## INSTALL:
