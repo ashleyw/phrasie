@@ -1,9 +1,9 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-class TestTermExtractor < Test::Unit::TestCase
+class TestWordinator < Test::Unit::TestCase
   def setup
     @text = 'The German consul of Boston resides in Newton.'
-    @extractor = TermExtractor.new
+    @extractor = Wordinator::Extractor.new
   end
   
   def test_extractor

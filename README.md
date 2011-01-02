@@ -1,4 +1,5 @@
-# Term Extractor
+# Wordinator
+## Term Extractor
 
 ![Keywords](http://cosmicdiary.org/blogs/tijana_prodanovic/wp-content/uploads/2009/05/keywords.jpg)
 
@@ -84,7 +85,7 @@ Based on the excellent Python library [topia.termextract](http://pypi.python.org
     
 By default the results are filtered to remove words/phrases which occur less than 3 times, or have a word-count of less than 2. Here's how you'd modify it:
     
-`extractor = TermExtractor.new(:filter => {:strength => 2, :occur => 3})`
+`extractor = Wordinator::Extractor.new(:filter => {:strength => 2, :occur => 3})`
 
 or
 
@@ -92,11 +93,11 @@ or
 
 ## INSTALL:
 
-    gem install term_extractor
+    gem install wordinator
 
 or in your Gemfile:
 
-    gem 'term_extractor'
+    gem 'wordinator'
 
 ## LICENSE:
 
