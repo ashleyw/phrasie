@@ -8,7 +8,7 @@ class TestWordinator < Test::Unit::TestCase
   
   def test_extractor
     expected = [["German consul", 1, 2]]
-    assert_equal expected, @extractor.extract(@text).sort_by{|a| a[1]}
+    assert_equal expected, @extractor.phrases(@text).sort_by{|a| a[1]}
   end
   
   def test_long_text
@@ -52,7 +52,7 @@ class TestWordinator < Test::Unit::TestCase
     
     Palestinians hope to establish their capital in the area.)
     
-    assert_equal 24, @extractor.extract(text).size
+    assert_equal 24, @extractor.phrases(text).size
   end
   
   def test_extractor_to_s

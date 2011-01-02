@@ -54,7 +54,7 @@ Based on the excellent Python library [topia.termextract](http://pypi.python.org
     
     extractor = Wordinator::Extractor.new
 
-    extractor.extract(text)
+    extractor.phrases(text)
     
     # => [["Jerusalem", 8, 1]
     # ["event", 6, 1]

@@ -14,7 +14,7 @@ module Wordinator
       "#<Wordinator::Extractor>"
     end
 
-    def extract(input, min_occur=3)
+    def phrases(input, min_occur=3)
       if input.is_a? String
         taggedTerms = self.tagger.tag(input)
       elsif input.is_a? Array
