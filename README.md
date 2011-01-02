@@ -76,6 +76,8 @@ or
 
 `extractor.filter = {:strength => 2, :occur => 3}`
 
+or take full control and filter it yourself with `keep_if`.
+
 ## INSTALL:
 
     gem install wordinator

@@ -50,7 +50,7 @@ module Wordinator
 
       return terms
               .map{|phrase, occurance| [phrase, occurance, phrase.split.size] } \
-              .delete_if{|arr| !self.validate(*arr)} \
+              .keep_if{|arr| self.validate(*arr)} \
               .sort_by{|phrase, occurance, strength|  occurance + ((occurance/5.0)*strength) }.reverse
     end
 
