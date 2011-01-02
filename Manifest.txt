@@ -1,0 +1,14 @@
+Manifest.txt
+README.md
+Rakefile
+lib/term_extractor.rb
+lib/term_extractor/extractor.rb
+lib/term_extractor/rules.rb
+lib/term_extractor/tag.rb
+lib/term_extractor/data/english-lexicon.txt
+script/console
+script/destroy
+script/generate
+term_extractor.gemspec
+test/test_helper.rb
+test/test_term_extractor.rb
