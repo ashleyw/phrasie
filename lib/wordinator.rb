@@ -5,4 +5,4 @@ require 'wordinator/rules'
 require 'wordinator/tag'
 require 'wordinator/extractor'  
   
-VERSION = '0.1.2'
+VERSION = '0.1.3'
