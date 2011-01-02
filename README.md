@@ -1,7 +1,7 @@
 # Wordinator
 ## Term Extractor
 
-![Keywords](http://cosmicdiary.org/blogs/tijana_prodanovic/wp-content/uploads/2009/05/keywords.jpg)
+![Terminator](http://t2.gstatic.com/images?q=tbn:WsQuaNoyT47gEM:http://img169.imageshack.us/img169/8233/dessinshwaug0.jpg&t=1)
 
 ## DESCRIPTION:
 
