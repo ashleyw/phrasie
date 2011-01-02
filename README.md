@@ -1,4 +1,6 @@
-# TermExtractor
+# Term Extractor
+
+![Keywords](http://cosmicdiary.org/blogs/tijana_prodanovic/wp-content/uploads/2009/05/keywords.jpg)
 
 ## DESCRIPTION:
 
@@ -80,7 +82,7 @@ Based on the excellent Python library [topia.termextract](http://pypi.python.org
     # ["Palestinians hope", 1, 2]]
     
     
-By default the results are filtered to remove words/phrases which occur less than 3 times, or have a word-count of less than 2. Here's how you would modify it:
+By default the results are filtered to remove words/phrases which occur less than 3 times, or have a word-count of less than 2. Here's how you'd modify it:
     
 `extractor = TermExtractor.new(:filter => {:strength => 2, :occur => 3})`
 
