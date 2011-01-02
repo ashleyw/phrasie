@@ -56,7 +56,7 @@ module Wordinator
 
     protected
     def validate(word, occur, strength)
-      (strength == 1 && occur >= self.filter[:occur]) || strength >= self.filter[:strength]
+      occur >= self.filter[:occur] || strength >= self.filter[:strength]
     end
 
     def add(term, norm, multiterm, terms)

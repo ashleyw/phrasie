@@ -3,16 +3,7 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 class TestWordinator < Test::Unit::TestCase
   def setup
     @text = 'The German consul of Boston resides in Newton.'
-    @extractor = Wordinator::Extractor.new
-  end
-  
-  def test_extractor
-    expected = [["German consul", 1, 2]]
-    assert_equal expected, @extractor.phrases(@text).sort_by{|a| a[1]}
-  end
-  
-  def test_long_text
-    text = %(Police shut Palestinian theatre in Jerusalem.
+    @long_text = %(Police shut Palestinian theatre in Jerusalem.
     
     Israeli police have shut down a Palestinian theatre in East Jerusalem.
     
@@ -51,8 +42,47 @@ class TestWordinator < Test::Unit::TestCase
     capital.
     
     Palestinians hope to establish their capital in the area.)
-    
-    assert_equal 24, @extractor.phrases(text).size
+    @extractor = Wordinator::Extractor.new
+  end
+  
+  def test_extractor
+    expected = [["German consul", 1, 2]]
+    assert_equal expected, @extractor.phrases(@text).sort_by{|a| a[1]}
+  end
+  
+  # [["Jerusalem", 8, 1],
+  #  ["event", 6, 1],
+  #  ["Palestinian", 6, 1],
+  #  ["East Jerusalem", 4, 2],
+  #  ["East", 4, 1],
+  #  ["police", 4, 1],
+  #  ["Israel", 4, 1],
+  #  ["theatre", 3, 1],
+  #  ["Palestinian theatre", 2, 2],
+  #  ["Palestinian Authority", 2, 2],
+  #  ["opening event", 1, 2],
+  #  ["Israeli authorities", 1, 2],
+  #  ["Richard Makepeace", 1, 2],
+  #  ["court order", 1, 2],
+  #  ["literature festival", 1, 2],
+  #  ["British consul-general", 1, 2],
+  #  ["police notice", 1, 2],
+  #  ["security minister", 1, 2],
+  #  ["Israeli police", 1, 2],
+  #  ["peace accords", 1, 2],
+  #  ["Mr Makepeace", 1, 2],
+  #  ["British Council", 1, 2],
+  #  ["Palestinian state", 1, 2],
+  #  ["Palestinians hope", 1, 2]]
+  
+  def test_long_text
+    puts @extractor.phrases(@long_text).inspect   
+    assert_equal 24, @extractor.phrases(@long_text).size
+  end
+  
+  def test_filter_options
+    @extractor.filter = {:occur => 4, :strength => 3}
+    assert_equal 7, @extractor.phrases(@long_text).size
   end
   
   def test_extractor_to_s
