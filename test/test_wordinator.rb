@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 
 class TestWordinator < Test::Unit::TestCase
   def setup
-    @text = 'The German consul of Boston resides in Newton. The German consul is awesome.'
+    @text = 'The British consul of Boston resides in Newton. The British consul is awesome.'
     @long_text = %(Police shut Palestinian theatre in Jerusalem.
     
     Israeli police have shut down a Palestinian theatre in East Jerusalem.
@@ -46,7 +46,7 @@ class TestWordinator < Test::Unit::TestCase
   end
   
   def test_extractor
-    expected = [["German consul", 2, 2]]
+    expected = [["British consul", 2, 2]]
     assert_equal expected, @extractor.phrases(@text).sort_by{|a| a[1]}
   end
   

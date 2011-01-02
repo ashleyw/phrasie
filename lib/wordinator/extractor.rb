@@ -48,7 +48,7 @@ module Wordinator
         end
       end
 
-      return terms
+      return terms \
               .map{|phrase, occurance| [phrase, occurance, phrase.split.size] } \
               .keep_if{|arr| self.validate(*arr)} \
               .sort_by{|phrase, occurance, strength|  occurance + ((occurance/5.0)*strength) }.reverse

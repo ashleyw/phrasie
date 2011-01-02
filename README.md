@@ -10,6 +10,8 @@ statistical analysis to determine the terms and their strength.
 
 Based on the excellent Python library [topia.termextract](http://pypi.python.org/pypi/topia.termextract/).
 
+**Tested on Ruby 1.9.2.**
+
 ## SYNOPSIS:
     
     text = %(Police shut Palestinian theatre in Jerusalem.
