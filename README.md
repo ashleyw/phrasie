@@ -1,5 +1,4 @@
-# Wordinator
-## Term Extractor
+# Wordinator — Term Extractor
 
 ![Terminator](http://t2.gstatic.com/images?q=tbn:WsQuaNoyT47gEM:http://img169.imageshack.us/img169/8233/dessinshwaug0.jpg&t=1)
 
