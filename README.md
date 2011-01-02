@@ -101,7 +101,7 @@ or in your Gemfile:
 ## LICENSE:
 
 Copyright 2010 Ashley Williams <hi@ashleyw.co.uk> (Ruby port)  
-Copyright 2010 Stephan Richter, Russ Ferriday and the Zope Community (Original implementation)  
+Copyright 2009 Stephan Richter, Russ Ferriday and the Zope Community (Original implementation)  
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
