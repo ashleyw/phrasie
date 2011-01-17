@@ -3,6 +3,8 @@ $:.unshift(File.dirname(__FILE__)) unless
   
 require 'phrasie/rules'
 require 'phrasie/tag'
-require 'phrasie/extractor'  
-  
-VERSION = '0.1.3'
+require 'phrasie/extractor'
+
+module Phrasie
+  VERSION = '0.1.4'
+end

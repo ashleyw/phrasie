@@ -11,6 +11,7 @@ module Phrasie
       self.tags_by_term = Hash[file.split("\n").map{|line| line.split.first(2)}]
     end
   
+    # Takes some input text and outputs an array of the words contained in it.
     def tokenize(text)
       terms = []
       text.split(/\s/).each do |term|
@@ -29,6 +30,8 @@ module Phrasie
       return terms
     end
   
+    # Takes an array from #tokenize, or a string which it pipes through #tokenize,
+    #   and returns the words with part-of-speech tags.
     def tag(input)
       if input.is_a? String
         terms = self.tokenize(input)
@@ -43,7 +46,8 @@ module Phrasie
         tag = self.tags_by_term[term] || "NND"
         tagged_terms << [term, tag, term]
       end
-        
+      
+      # These rules are definied in rules.rb
       rules = [
         'correctDefaultNounTag',
         'verifyProperNounAtSentenceStart',
@@ -56,7 +60,9 @@ module Phrasie
           id, tagged_terms[id], tagged_terms = self.send(rule.to_sym, id, tagged_term, tagged_terms)
         end
       end
+      
       return tagged_terms
     end
+    
   end
 end

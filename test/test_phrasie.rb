@@ -64,31 +64,6 @@ class TestPhrasie < Test::Unit::TestCase
     assert_equal 7, @extractor.phrases(text).size
   end
   
-  #   [["Jerusalem", 8, 1],
-  #    ["event", 6, 1],
-  #    ["Palestinian", 6, 1],
-  #    ["East Jerusalem", 4, 2],
-  #    ["East", 4, 1],
-  #    ["police", 4, 1],
-  #    ["Israel", 4, 1],
-  #    ["theatre", 3, 1],
-  #    ["Palestinian theatre", 2, 2],
-  #    ["Palestinian Authority", 2, 2],
-  #    ["opening event", 1, 2],
-  #    ["Israeli authorities", 1, 2],
-  #    ["Richard Makepeace", 1, 2],
-  #    ["court order", 1, 2],
-  #    ["literature festival", 1, 2],
-  #    ["British consul-general", 1, 2],
-  #    ["police notice", 1, 2],
-  #    ["security minister", 1, 2],
-  #    ["Israeli police", 1, 2],
-  #    ["peace accords", 1, 2],
-  #    ["Mr Makepeace", 1, 2],
-  #    ["British Council", 1, 2],
-  #    ["Palestinian state", 1, 2],
-  #    ["Palestinians hope", 1, 2]]
-  
   def test_long_text
     assert_equal 10, @extractor.phrases(@long_text).size
   end
