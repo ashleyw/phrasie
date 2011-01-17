@@ -23,7 +23,7 @@ module Phrasie
       else
         return []
       end
-      
+            
       unless filter.nil?
         self.filter = self.filter.merge(filter)
         if self.filter[:occur].to_s[/%/]
@@ -40,7 +40,7 @@ module Phrasie
         if state == SEARCH && tag[0,1] == "N"
           state = NOUN
           add(term, norm, multiterm, terms)
-        elsif state == SEARCH && tag == 'JJ' && term[0,1].upcase == term[0]
+        elsif state == SEARCH && tag == 'JJ' && term[0,1].upcase == term[0,1]
           state = NOUN
           add(term, norm, multiterm, terms)
         elsif state == NOUN && tag[0,1] == "N"
@@ -55,7 +55,7 @@ module Phrasie
           multiterm = []
         end
       end
-
+      
       return terms \
               .map{|phrase, occurance| [phrase, occurance, phrase.split.size] } \
               .delete_if{|arr| !self.validate(*arr)} \
