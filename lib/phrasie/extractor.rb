@@ -1,7 +1,7 @@
 SEARCH = 0
 NOUN = 1
 
-module Wordinator
+module Phrasie
   class Extractor
     attr_accessor :tagger, :filter
 
@@ -11,7 +11,7 @@ module Wordinator
     end
     
     def to_s
-      "#<Wordinator::Extractor>"
+      "#<Phrasie::Extractor>"
     end
 
     def phrases(input, min_occur=3)

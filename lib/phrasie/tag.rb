@@ -1,6 +1,6 @@
-module Wordinator
+module Phrasie
   class Tagger
-    include Wordinator::Rules
+    include Phrasie::Rules
     TERM_SPEC = /([^a-zA-Z]*)([a-zA-Z\-\.]*[a-zA-Z])([^a-zA-Z]*[a-zA-Z]*)/
     attr_accessor :language, :tags_by_term, :lexicon
   

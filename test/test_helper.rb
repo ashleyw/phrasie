@@ -1,3 +1,3 @@
 require 'stringio'
 require 'test/unit'
-require File.dirname(__FILE__) + '/../lib/wordinator'
+require File.dirname(__FILE__) + '/../lib/phrasie'

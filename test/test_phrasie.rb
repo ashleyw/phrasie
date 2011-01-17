@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-class TestWordinator < Test::Unit::TestCase
+class TestPhrasie < Test::Unit::TestCase
   def setup
     @text = 'The British consul of Boston resides in Newton. The British consul is awesome.'
     @long_text = %(Police shut Palestinian theatre in Jerusalem.
@@ -42,7 +42,7 @@ class TestWordinator < Test::Unit::TestCase
     capital.
     
     Palestinians hope to establish their capital in the area.)
-    @extractor = Wordinator::Extractor.new
+    @extractor = Phrasie::Extractor.new
   end
   
   def test_extractor
@@ -99,6 +99,6 @@ class TestWordinator < Test::Unit::TestCase
   end
   
   def test_extractor_to_s
-    assert @extractor.to_s == "#<Wordinator::Extractor>"
+    assert @extractor.to_s == "#<Phrasie::Extractor>"
   end
 end

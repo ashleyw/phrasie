@@ -1,4 +1,4 @@
-module Wordinator
+module Phrasie
   module Rules
     # Determine whether a default noun is plural or singular.
     def correctDefaultNounTag(id, tagged_term, tagged_terms)

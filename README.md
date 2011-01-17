@@ -1,6 +1,4 @@
-# Wordinator — Term Extractor
-
-![Terminator](http://t2.gstatic.com/images?q=tbn:WsQuaNoyT47gEM:http://img169.imageshack.us/img169/8233/dessinshwaug0.jpg&t=1)
+# Phrasie — Term Extractor
 
 ## DESCRIPTION:
 
@@ -54,7 +52,7 @@ Based on the excellent Python library [topia.termextract](http://pypi.python.org
     
     Palestinians hope to establish their capital in the area.)
     
-    extractor = Wordinator::Extractor.new
+    extractor = Phrasie::Extractor.new
 
     extractor.phrases(text)
     
@@ -72,7 +70,7 @@ Based on the excellent Python library [topia.termextract](http://pypi.python.org
     
 By default the results are filtered to only keep words/phrases which occur at least 3 times, or occur at least twice and have a word count of more than 2. Here's how you'd modify this behaviour:
     
-`extractor = Wordinator::Extractor.new(:filter => {:strength => 2, :occur => 3})`
+`extractor = Phrasie::Extractor.new(:filter => {:strength => 2, :occur => 3})`
 
 or
 
@@ -82,11 +80,11 @@ or take full control and filter it yourself with `keep_if`.
 
 ## INSTALL:
 
-    gem install wordinator
+    gem install phrasie
 
 or in your Gemfile:
 
-    gem 'wordinator'
+    gem 'phrasie'
 
 ## LICENSE:
 
