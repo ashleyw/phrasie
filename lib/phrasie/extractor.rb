@@ -64,7 +64,7 @@ module Phrasie
       # Also create the phrase strengths.
       return terms \
               .map{|phrase, occurance| [phrase, occurance, phrase.split.size] } \
-              .delete_if{|arr| !self.validate(*arr, filter)} \
+              .delete_if{|phrase, occurance, strength| !self.validate(phrase, occurance, strength, filter)} \
               .sort_by{|phrase, occurance, strength|  occurance + ((occurance/5.0)*strength) }.reverse
     end
 
