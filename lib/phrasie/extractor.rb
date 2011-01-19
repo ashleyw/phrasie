@@ -1,8 +1,9 @@
-SEARCH = 0
-NOUN = 1
-
 module Phrasie
   class Extractor
+    # Simple state machine for use in the #phrases method.
+    SEARCH = 0
+    NOUN = 1
+    
     attr_accessor :tagger, :filter
 
     def initialize(options={})
@@ -14,7 +15,8 @@ module Phrasie
       "#<Phrasie::Extractor>"
     end
     
-    # Returns an array of [phrase, occurances, # of words in phrase]
+    # Returns an array of arrays in the format of: 
+    #   [phrase, # of occurances, # of words in phrase]
     def phrases(input, filter=nil)
       if input.is_a? String
         taggedTerms = self.tagger.tag(input)
@@ -33,8 +35,9 @@ module Phrasie
 
       terms = {}
       multiterm = []
+      
       state = SEARCH
-
+      
       while taggedTerms.size > 0
         term, tag, norm = taggedTerms.shift
         if state == SEARCH && tag[0,1] == "N"

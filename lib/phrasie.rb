@@ -6,5 +6,5 @@ require 'phrasie/tag'
 require 'phrasie/extractor'
 
 module Phrasie
-  VERSION = '0.1.4'
+  VERSION = '0.1.5'
 end
