@@ -70,11 +70,12 @@ Based on the excellent Python library [topia.termextract](http://pypi.python.org
     
 By default the results are filtered to only keep words/phrases which occur at least 3 times, or occur at least twice and have a word count of more than 2. Here's how you'd modify this behaviour:
     
-`extractor = Phrasie::Extractor.new(:filter => {:strength => 2, :occur => 3})`
+    extractor = Phrasie::Extractor.new
+    extractor.phrases(some_text, :strength => 2, :occur => 3)
+    
+or globally:
 
-or
-
-`extractor.filter = {:strength => 2, :occur => 3}`
+   extractor = Phrasie::Extractor.new(:strength => 2, :occur => 3)
 
 or take full control and filter it yourself with `keep_if`.
 

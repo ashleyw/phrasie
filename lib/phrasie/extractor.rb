@@ -4,11 +4,11 @@ module Phrasie
     SEARCH = 0
     NOUN = 1
     
-    attr_accessor :tagger, :filter
+    attr_accessor :tagger, :default_filter
 
-    def initialize(options={})
+    def initialize(filter={})
       self.tagger = Tagger.new
-      self.filter = {:strength => 2, :occur => 3}.merge(options[:filter] || {})
+      self.default_filter = {:strength => 2, :occur => 3}.merge(filter)
     end
     
     def to_s
@@ -25,19 +25,21 @@ module Phrasie
       else
         return []
       end
-            
-      unless filter.nil?
-        self.filter = self.filter.merge(filter)
-        if self.filter[:occur].to_s[/%/]
-          self.filter[:occur] = [(taggedTerms.size * 0.01), 2].sort.last.round
-        end
+      
+      # If the filter is a string containing a percent sign, e.g. '10%', we'll
+      #   set the filter's min-occurence value to x% of the input length.
+      # 2% on a text length of 100 will mean it needs to occur twice.
+      filter = self.default_filter.merge(filter || {})
+      if filter[:occur].to_s[/%/]
+        filter[:occur] = [(taggedTerms.size * filter[:occur].to_f/100), 2].sort.last.round
       end
-
-      terms = {}
+      
+      terms = Hash.new(0)
       multiterm = []
       
+      # Phase 1: A little state machine is used to build simple and
+      # composite phrases.
       state = SEARCH
-      
       while taggedTerms.size > 0
         term, tag, norm = taggedTerms.shift
         if state == SEARCH && tag[0,1] == "N"
@@ -52,30 +54,30 @@ module Phrasie
           state = SEARCH
           if multiterm.size > 1
             word = multiterm.map(&:first).join(' ')
-            terms[word] ||= 0
             terms[word] += 1
           end
           multiterm = []
         end
       end
       
+      # Phase 2: Only select the phrases that fulfill the filter criteria.
+      # Also create the phrase strengths.
       return terms \
               .map{|phrase, occurance| [phrase, occurance, phrase.split.size] } \
-              .delete_if{|arr| !self.validate(*arr)} \
+              .delete_if{|arr| !self.validate(*arr, filter)} \
               .sort_by{|phrase, occurance, strength|  occurance + ((occurance/5.0)*strength) }.reverse
     end
 
     protected
     
     # Validates the phrase is within the bounds of our filter
-    def validate(word, occur, strength)
-      occur >= self.filter[:occur] || (occur >= 2 && strength >= self.filter[:strength])
+    def validate(word, occur, strength, filter)
+      occur >= filter[:occur] || (occur >= 2 && strength >= filter[:strength])
     end
     
     # Used within #phrases
     def add(term, norm, multiterm, terms)
       multiterm << [term, norm]
-      terms[norm] ||= 0
       terms[norm] += 1
     end
   end

@@ -69,8 +69,7 @@ class TestPhrasie < Test::Unit::TestCase
   end
   
   def test_filter_options
-    @extractor.filter = {:occur => 4, :strength => 3}
-    assert_equal 7, @extractor.phrases(@long_text).size
+    assert_equal 7, @extractor.phrases(@long_text, :occur => 4, :strength => 3).size
   end
   
   def test_extractor_to_s
