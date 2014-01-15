@@ -14,4 +14,6 @@ Gem::Specification.new do |s|
   
   s.files        = File.read("Manifest.txt").split("\n")
   s.require_path = 'lib'
+  s.add_development_dependency 'hoe', '>= 2.1.0'
+  s.add_development_dependency 'newgem'
 end

@@ -1,0 +1,30 @@
+PATH
+  remote: .
+  specs:
+    phrasie (0.1.5)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    RedCloth (4.2.9)
+    activesupport (2.3.18)
+    hoe (3.7.4)
+      rake (>= 0.8, < 11.0)
+    newgem (1.5.3)
+      RedCloth (>= 4.1.1)
+      activesupport (~> 2.3.4)
+      hoe (>= 2.4.0)
+      rubigen (>= 1.5.3)
+      syntax (>= 1.0.0)
+    rake (10.1.1)
+    rubigen (1.5.8)
+      activesupport (>= 2.3.5, < 3.2.0)
+    syntax (1.2.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  hoe (>= 2.1.0)
+  newgem
+  phrasie!
