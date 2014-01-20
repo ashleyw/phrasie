@@ -8,7 +8,7 @@ statistical analysis to determine the terms and their strength.
 
 Based on the excellent Python library [topia.termextract](http://pypi.python.org/pypi/topia.termextract/).
 
-**Tested on Ruby 1.8.7 and 1.9.2.**
+**Tested on Ruby 1.8.7, 1.9.2, and 2.0.0p247**
 
 ## SYNOPSIS:
     
@@ -89,7 +89,7 @@ or in your Gemfile:
 
 ## LICENSE:
 
-Copyright 2010 Ashley Williams \<<hi@ashleyw.co.uk>\>  
+Copyright 2014 Ashley Williams \<<hi@ashleyw.co.uk>\>  
 Copyright 2009 Stephan Richter, Russ Ferriday and the Zope Community (Original Python implementation)  
 
 This program is free software: you can redistribute it and/or modify
